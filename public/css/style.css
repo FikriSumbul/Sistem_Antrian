@@ -1,9 +1,71 @@
-.bg-navbar{
-    background-color: rgb(0, 26, 110);
+.bg-satu{
+    background-color: rgb(54, 195, 213);
 }
 
-.bg-admin{
-    background-color: rgb(2, 14, 255);
+.bg-dua{
+    background-color: rgb(48, 176, 199);
+}
+
+.bg-tiga{
+    background-color: rgb(185, 207, 230);
+}
+
+.bg-empat{
+    background-color: rgb(63, 180, 92);
+}
+
+.bg-lima{
+    background-color: rgb(52, 199, 89);
+}
+
+.border-satu{
+    border-color: rgb(54, 195, 213);
+}
+
+.btn-satu{
+    background-color: rgb(54, 195, 213);
+    border-color: rgb(54, 195, 213);
+}
+
+.btn-satu:hover,
+.btn-satu:active,
+.btn-satu:focus{
+    background-color: rgb(0, 163, 185) !important;
+    border-color: rgb(0, 163, 185) !important;
+}
+
+.btn-dua{
+    background-color: white;
+    color: rgb(54, 195, 213);
+
+}
+
+.btn-dua:hover,
+.btn-dua:active,
+.btn-dua:focus,
+.btn-dua:disabled{
+    background-color: rgb(225, 225, 225) !important;
+    color: rgb(54, 195, 213) !important;
+    border-color: rgb(54, 195, 213) !important;
+}
+
+.btn-tiga{
+    background-color: rgb(10, 184, 173);
+    color: white;
+}
+
+.btn-tiga:hover,
+.btn-tiga:focus{
+    background-color: rgb(7, 149, 140) !important;
+    color: white;
+}
+
+.text-satu{
+    color: rgb(54, 195, 213);
+}
+
+.text-dua{
+    color: rgb(239, 243, 112);
 }
 
 .bt-text{
@@ -13,3 +75,12 @@
     text-overflow: ellipsis;
     max-width: 150px;
 }
+
+.tabel-antrian{
+    width: 80%;
+    margin: auto;
+    max-height: 400px;
+    overflow-y: auto;
+    /* border: 1px solid #ccc; */
+}
+
