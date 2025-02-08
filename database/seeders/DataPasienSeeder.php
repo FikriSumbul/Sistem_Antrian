@@ -56,5 +56,62 @@ class DataPasienSeeder extends Seeder
         //     'nama_dokter' => 'dr. Miftahul',
         //     'asal_pasien' => 'Poli Mata 3',
         // ]);
+
+        // DB::table('data_pasien')->insert([
+        //     'nomor_rm' => '0002310425559',
+        //     'nama_pasien' => 'Muhammad Hafizh Alfarabi',
+        //     'nama_dokter' => 'dr. A. Muhammad Alfaridzi Akbar',
+        //     'asal_pasien' => 'Poli interna',
+        // ]);
+
+        // DB::table('data_pasien')->insert([
+        //     'nomor_rm' => '0000127351675',
+        //     'nama_pasien' => 'Muhammad Ainul Fikri',
+        //     'nama_dokter' => 'dr. Fachrul Hastar',
+        //     'asal_pasien' => 'Poli interna',
+        // ]);
+
+        // DB::table('data_pasien')->insert([
+        //     'nomor_rm' => '0000127351642',
+        //     'nama_pasien' => 'Muh. Alif Al Qadri',
+        //     'nama_dokter' => 'dr. Dian',
+        //     'asal_pasien' => 'Poli Mata 4',
+        // ]);
+
+        // DB::table('data_pasien')->insert([
+        //     'nomor_rm' => '10234',
+        //     'nama_pasien' => 'Ahmad Pratama',
+        //     'nama_dokter' => 'dr. Siti Rahma',
+        //     'asal_pasien' => 'Poli Umum',
+        // ]);
+
+        // DB::table('data_pasien')->insert([
+        //     'nomor_rm' => '20457',
+        //     'nama_pasien' => 'Budi Santoso',
+        //     'nama_dokter' => 'dr. Rina Kusuma',
+        //     'asal_pasien' => 'Poli Gigi',
+        // ]);
+
+        // DB::table('data_pasien')->insert([
+        //     'nomor_rm' => '30568',
+        //     'nama_pasien' => 'Cindy Maharani',
+        //     'nama_dokter' => 'dr. Agus Prasetyo',
+        //     'asal_pasien' => 'Poli Umum',
+        // ]);
+
+        // DB::table('data_pasien')->insert([
+        //     'nomor_rm' => '40987',
+        //     'nama_pasien' => 'Denny Setiawan',
+        //     'nama_dokter' => 'dr. Faisal Ridwan',
+        //     'asal_pasien' => 'Poli Saraf',
+        // ]);
+
+        // DB::table('data_pasien')->insert([
+        //     'nomor_rm' => '51236',
+        //     'nama_pasien' => 'Erika Putri',
+        //     'nama_dokter' => 'dr. Laila Sari',
+        //     'asal_pasien' => 'Poli Kandungan',
+        // ]);
     }
 }
+
