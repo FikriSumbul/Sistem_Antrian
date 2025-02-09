@@ -22,7 +22,7 @@
                 <h3 class="text-center m-0 py-2 bg-dua text-white sticky-top rounded-3" style="top: 0; z-index: 3;">
                     Daftar Antrian Pasien
                 </h3>
-                <div class="mt-2 table-responsive bg-tiga rounded-3" style="max-height: 400px; overflow-y: auto;">
+                <div class="mt-2 table-responsive bg-tiga rounded-3 custom-shadow scroll-tabel">
                     <table cellpadding="10" cellspacing="1" class="w-100 text-center">
                         <thead class="bg-satu sticky-top" style="top: 0; z-index: 2;">
                             <tr>
@@ -44,7 +44,7 @@
                                 @foreach ($antrian_belum_selesai as $index => $data)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-                                    <td class="bt-text">{{ $data['nomor_rm'] }}</td>
+                                    <td>{{ $data['nomor_rm'] }}</td>
                                     <td class="bt-text">{{ $data['nama_pasien'] }}</td>
                                     <td class="bt-text">{{ $data['nama_dokter'] }}</td>
                                     <td class="bt-text">{{ $data['asal_pasien'] }}</td>
@@ -57,7 +57,10 @@
                                         <form action="{{ route('panggil.pasien', $data['nomor_rm']) }}" method="POST" class="d-inline">
                                             @csrf
                                             <button type="submit" class="btn btn-satu btn-sm fw-bold text-white"
-                                                {{ ($data['status'] ?? '') === 'Selesai' ? 'disabled' : '' }}>Panggil</button>
+                                                onclick="panggilPasien('{{ $data['nama_pasien'] }}', '{{ $data['nomor_rm'] }}')"
+                                                {{ ($data['status'] ?? '') === 'Selesai' ? 'disabled' : '' }}>
+                                                Panggil
+                                            </button>
                                         </form>
                                         <form action="{{ route('selesai.pasien', $data['nomor_rm']) }}" method="POST" class="d-inline">
                                             @csrf
@@ -80,9 +83,9 @@
             <h3 class="text-center m-0 py-2 bg-empat text-white sticky-top rounded-3" style="top: 0; z-index: 3;">
                 Pasien Selesai
             </h3>
-            <div class="mt-2 table-responsive bg-tiga rounded-3" style="max-height: 400px; overflow-y: auto;">
+            <div class="w-75 mt-2 mx-auto table-responsive bg-tiga rounded-3 custom-shadow scroll-tabel">
                 <table cellpadding="10" cellspacing="1" class="w-100 text-center">
-                    <thead class="bg-lima text-white">
+                    <thead class="bg-lima sticky-top text-white">
                         <tr>
                             <th>No</th>
                             <th>Nomor RM</th>
@@ -100,7 +103,7 @@
                             @foreach ($antrian_selesai as $index => $data)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
-                                <td class="bt-text">{{ $data['nomor_rm'] }}</td>
+                                <td>{{ $data['nomor_rm'] }}</td>
                                 <td class="bt-text">{{ $data['nama_pasien'] }}</td>
                                 <td class="bt-text">{{ $data['nama_dokter'] }}</td>
                                 <td class="bt-text">{{ $data['asal_pasien'] }}</td>
@@ -121,5 +124,7 @@
             </div>
         </div>
     </div>
+
+    <script src="{{ asset('js/pemanggilan.js') }}"></script>
 
 @endsection
