@@ -76,11 +76,28 @@
     max-width: 150px;
 }
 
+.scroll-tabel{
+    max-height: 420px;
+    overflow-y: auto;
+}
+
 .tabel-antrian{
     width: 80%;
     margin: auto;
     max-height: 400px;
     overflow-y: auto;
     /* border: 1px solid #ccc; */
+}
+
+tbody tr:nth-child(odd) {
+    background-color: var(--bg-tiga); /* Sesuai warna yang sudah ada */
+}
+
+tbody tr:nth-child(even) {
+    background-color: white;
+}
+
+.custom-shadow {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5); /* Bayangan lebih tebal */
 }
 
