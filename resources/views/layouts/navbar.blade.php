@@ -20,7 +20,7 @@
                 <div class="col-9">
                     <a href="#" style="text-decoration: none; font-family: Arial, Helvetica, sans-serif;">
                         <h3 class="text-info fw-bold m-0">Kemenkes</h3>
-                        <h5 class="text-info m-0">RS Mata Makassar</h5>
+                        <h5 class="text-tiga fw-bold m-0">RS Mata Makassar</h5>
                     </a>
                 </div>
             </div>
