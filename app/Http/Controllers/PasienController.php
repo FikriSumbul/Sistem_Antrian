@@ -3,18 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataPasien;
+use App\Models\AntrianPasien;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PasienController extends Controller
 {
-    // public function cariPasien(Request $request){
-    //     $request->validate([
-    //         'nomor_rm' => 'required|string'
-    //     ]);
-    //     $datapasien = DataPasien::where('nomor_rm', $request->nomor_rm)->get();
-    //     return view('dataPasien', compact('datapasien'));
-    // }
-
     public function cariPasien(Request $request){
         $request->validate([
             'nomor_rm' => 'required|string'
@@ -27,61 +21,51 @@ class PasienController extends Controller
             return redirect()->back()->with('error', 'Data pasien tidak ditemukan.');
         }
 
-        // Ambil antrian pasien dari session (jika ada)
-        $antrian = session()->get('antrian', []);
+        // Simpan ke database antrian jika belum ada
+        $existingAntrian = AntrianPasien::where('nomor_rm', $pasien->nomor_rm)
+                                        ->whereDate('waktu_antrian', Carbon::today())
+                                        ->first();
 
-        // Cek apakah pasien sudah ada dalam antrian
-        $exists = collect($antrian)->contains('nomor_rm', $pasien->nomor_rm);
-
-        if (!$exists) {
-            // Tambahkan pasien baru ke antrian
-            $antrian[] = [
-                'nomor_rm' => $pasien->nomor_rm,
-                'nama_pasien' => $pasien->nama_pasien,
-                'nama_dokter' => $pasien->nama_dokter,
-                'asal_pasien' => $pasien->asal_pasien,
-            ];
-
-            // Simpan kembali ke session
-            session()->put('antrian', $antrian);
+        if (!$existingAntrian) {
+            AntrianPasien::create([
+                'nomor_rm'     => $pasien->nomor_rm,
+                'waktu_antrian'=> Carbon::now(),
+                'nama_pasien'  => $pasien->nama_pasien,
+                'nama_dokter'  => $pasien->nama_dokter,
+                'asal_pasien'  => $pasien->asal_pasien,
+                'status'       => 'Menunggu',
+            ]);
         }
 
         return redirect()->back();
     }
 
-    public function panggilPasien($nomor_rm){
-        // Ambil antrian dari session
-        $antrian = session()->get('antrian', []);
+    // Fungsi untuk menampilkan daftar antrian
+    public function tampilkanAntrian(){
+        $antrian = AntrianPasien::whereDate('waktu_antrian', Carbon::today())->get();
+        return view('dataPasien', compact('antrian'));
+    }
 
-        // Cari pasien berdasarkan nomor RM dan ubah statusnya
-        foreach ($antrian as $key => $pasien) {
-            if ($pasien['nomor_rm'] === $nomor_rm) {
-                $antrian[$key]['status'] = 'Dipanggil';
-                break;
-            }
+    public function resetAntrian(){
+        // Reset semua antrian ke status default atau hapus
+        AntrianPasien::whereDate('waktu_antrian', now()->toDateString())->delete();
+
+        return redirect()->back()->with('success', 'Antrian berhasil direset.');
+    }
+
+    public function panggilPasien($nomor_rm) {
+        $pasien = AntrianPasien::where('nomor_rm', $nomor_rm)->first();
+        if ($pasien) {
+            $pasien->update(['status' => 'Dipanggil']);
         }
-
-        // Simpan kembali ke session
-        session()->put('antrian', $antrian);
-
         return redirect()->back()->with('success', 'Pasien telah dipanggil.');
     }
 
-    public function selesaiPasien($nomor_rm){
-        // Ambil antrian dari session
-        $antrian = session()->get('antrian', []);
-
-        // Cari pasien berdasarkan nomor RM dan ubah statusnya
-        foreach ($antrian as $key => $pasien) {
-            if ($pasien['nomor_rm'] === $nomor_rm) {
-                $antrian[$key]['status'] = 'Selesai';
-                break;
-            }
+    public function selesaiPasien($nomor_rm) {
+        $pasien = AntrianPasien::where('nomor_rm', $nomor_rm)->first();
+        if ($pasien) {
+            $pasien->update(['status' => 'Selesai']);
         }
-
-        // Simpan kembali ke session
-        session()->put('antrian', $antrian);
-
         return redirect()->back()->with('success', 'Pasien telah selesai.');
     }
 }
