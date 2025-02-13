@@ -1,9 +1,11 @@
+/* Halaman User */
+/* ------------ */
 .bg-satu{
-    background-color: rgb(54, 195, 213);
+    background-color: rgb(37, 126, 131);
 }
 
 .bg-dua{
-    background-color: rgb(48, 176, 199);
+    background-color: rgb(18, 97, 101);
 }
 
 .bg-tiga{
@@ -19,25 +21,25 @@
 }
 
 .border-satu{
-    border-color: rgb(54, 195, 213);
+    border-color: rgb(37, 126, 131);
 }
 
 .btn-satu{
-    background-color: rgb(54, 195, 213);
-    border-color: rgb(54, 195, 213);
+    background-color: rgb(37, 126, 131);
+    border-color: rgb(37, 126, 131);
 }
 
 .btn-satu:hover,
 .btn-satu:active,
 .btn-satu:focus{
-    background-color: rgb(0, 163, 185) !important;
-    border-color: rgb(0, 163, 185) !important;
+    background-color: rgb(37, 126, 131) !important;
+    border-color: rgb(37, 126, 131) !important;
 }
 
 .btn-dua{
     background-color: white;
-    color: rgb(54, 195, 213);
-
+    color: rgb(37, 126, 131);
+    border-color: rgb(37, 126, 131);
 }
 
 .btn-dua:hover,
@@ -45,8 +47,8 @@
 .btn-dua:focus,
 .btn-dua:disabled{
     background-color: rgb(225, 225, 225) !important;
-    color: rgb(54, 195, 213) !important;
-    border-color: rgb(54, 195, 213) !important;
+    color: rgb(37, 126, 131) !important;
+    border-color: rgb(37, 126, 131) !important;
 }
 
 .btn-tiga{
@@ -81,20 +83,12 @@
 }
 
 .scroll-tabel{
-    max-height: 420px;
+    max-height: 475px;
     overflow-y: auto;
-}
-
-.tabel-antrian{
-    width: 80%;
-    margin: auto;
-    max-height: 400px;
-    overflow-y: auto;
-    /* border: 1px solid #ccc; */
 }
 
 tbody tr:nth-child(odd) {
-    background-color: var(--bg-tiga); /* Sesuai warna yang sudah ada */
+    background-color: var(--bg-tiga);
 }
 
 tbody tr:nth-child(even) {

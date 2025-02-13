@@ -10,11 +10,11 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <nav class="navbar bg-satu py-3 px-5 fixed-top">
-            <div class="row ml-3 p-2 w-25 align-items-center rounded-4 bg-white">
+        <nav class="navbar bg-satu px-5 fixed-top" style="height: 80px">
+            <div class="row ml-3 align-items-center rounded-4 bg-white">
                 <div class="col-3 d-flex justify-content-center">
                     <a href="#" class="justify-content-center align-items-center w-100">
-                        <img src="/gambar/.png.png" alt="Logo" width="70" height="70">
+                        <img src="/gambar/.png.png" alt="Logo" width="50" height="50">
                     </a>
                 </div>
                 <div class="col-9">
@@ -27,17 +27,18 @@
             <div class="col ml-auto text-end text-white">
                 <div class="row">
                     <div class="col-10 pe-1 d-flex flex-column justify-content-center text-end">
-                        <div id="day-name" class="text-dua fw-bold fs-5"></div>
-                        <div id="date-info" class="text-white fs-6"></div>
+                        <div id="hari" class="text-dua fw-bold fs-5"></div>
+                        <div id="tanggal" class="text-white fs-6"></div>
                     </div>
                     <div class="col-2 pe-4 d-flex flex-column align-items-center justify-content-center">
-                        <div id="time-container" class="fs-1 fw-semibold text-white"></div>
+                        <div id="waktu" class="fs-1 fw-semibold text-white"></div>
                     </div>
                 </div>
             </div>
         </nav>
-        <div class="bg-light w-100" style="min-height: 595px; height: auto; overflow: auto; margin-top: 100px">
+        <div class="bg-light w-100" style="min-height: 595px;">
             @yield('halamanuser')
+            @yield('halamanclient')
         </div>
 
         <script src="{{ asset('js/waktu.js') }}"></script>

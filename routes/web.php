@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AntrianPasienController;
 use App\Http\Controllers\DataPasienController;
 use App\Http\Controllers\PasienController;
 use App\Models\AntrianPasien;
@@ -8,6 +9,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/antrian', [AntrianPasienController::class, 'antrianPasien']);
+
+Route::get('/get-antrian', [PasienController::class, 'tampilkanAntrian'])->name('tampilkan.antrian');
 
 Route::get('/pasien', function () {
     return view('dataPasien');
